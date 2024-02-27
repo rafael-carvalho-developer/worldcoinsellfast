@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Worldcoin Sell Fast</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #333; /* Cor de fundo escuro */
+        color: #fff; /* Cor do texto */
+      }
+      .container {
+        padding-top: 20px; /* Espaçamento no topo */
+      }
+      .logo {
+        text-align: center;
+        height: 150px;
+        margin-bottom: 20px;
+      }
+      .logo img {
+        width: 150px; /* Tamanho do logotipo */
+      }
+      .form-group label {
+        color: #fff; /* Cor do rótulo do formulário */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="Worldcoin Sell Fast" />
+      </div>
+      <h1 class="mt-5 mb-4">Conversor de Worldcoin</h1>
+      <form action="/convert" method="post">
+        <div class="form-group">
+          <label for="amount">Digite a quantidade de WLD:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="amount"
+            name="amount"
+            step="0.01"
+            min="0"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-dark">Converter</button>
+      </form>
+    </div>
+  </body>
+</html>

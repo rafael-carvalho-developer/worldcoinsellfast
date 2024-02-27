@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultado da Conversão</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      body {
+        background-color: #333; /* Cor de fundo escuro */
+        color: #fff; /* Cor do texto */
+      }
+      .result {
+        margin-top: 20px;
+      }
+      .result-item {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .result-item button {
+        margin-left: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .result-item button i {
+        color: #007bff;
+        font-size: 1.2rem;
+      }
+      .result-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .green {
+        color: rgb(70, 203, 70);
+      }
+      .yellow {
+        color: rgb(190, 186, 85);
+      }
+      .small {
+        font-size: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5 mb-4">Resultado da Conversão</h1>
+      <div class="result">
+        <div class="result-title">Informação</div>
+        <div class="result-item">
+          {{ amount_wld }} WLD = {{ converted_usd }} USD / {{ converted_eur }}
+          EUR
+        </div>
+        <div class="result-item small">
+          (1.0 WLD = {{ one_wld_usd }} USD / {{ one_wld_eur }} EUR)
+        </div>
+
+        <div class="result-title">Pagamento</div>
+        <div class="result-item">
+          <span class="green">75%</span> -> {{ amount_wld }} WLD = {{
+          final_price_eur_75 }} Euros
+        </div>
+        <div class="result-item">
+          <span class="yellow">80%</span> -> {{ amount_wld }} WLD = {{
+          final_price_eur_80 }} Euros
+        </div>
+
+        <div class="result-title">Profit</div>
+        <div class="result-item">
+          <span class="green">75%</span> -> {{ final_price_eur_75_profit }}
+          Euros
+        </div>
+        <div class="result-item">
+          <span class="yellow">80%</span> -> {{ final_price_eur_80_profit }}
+          Euros
+        </div>
+
+        <div class="result-title">Copiar para Cliente</div>
+        <div class="result-item">
+          <span class="green">75%</span> -> Sendo assim o valor final
+          disponível, será {{ final_price_eur_75 }} €
+          <button
+            onclick="copyToClipboard('Sendo assim o valor final disponível, será {{ final_price_eur_75 }} €')"
+          >
+            <i class="far fa-copy"></i>
+          </button>
+        </div>
+        <div class="result-item">
+          <span class="yellow">80%</span> -> Sendo assim o valor final
+          disponível, será {{ final_price_eur_80 }} €
+          <button
+            onclick="copyToClipboard('Sendo assim o valor final disponível, será {{ final_price_eur_80 }} €')"
+          >
+            <i class="far fa-copy"></i>
+          </button>
+        </div>
+      </div>
+      <a href="/back" class="btn btn-dark mt-4">Voltar</a>
+    </div>
+
+    <script>
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+        alert("Texto copiado para a área de transferência!");
+      }
+    </script>
+  </body>
+</html>
